@@ -83,10 +83,18 @@ body.ready .stage{opacity:1}
 .stage:after{content:"";position:absolute;left:30%;right:30%;bottom:5%;height:26px;background:radial-gradient(ellipse,rgba(0,0,0,.7),transparent 70%);pointer-events:none}
 .stage canvas{position:relative;z-index:1;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
 .stage.grab canvas{cursor:grabbing}
-.hint{position:absolute;z-index:2;left:50%;bottom:2%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);background:rgba(20,25,23,.8);border:1px solid var(--line);padding:7px 14px;border-radius:99px;pointer-events:none;white-space:nowrap;transition:opacity .4s}
+.hint{position:absolute;z-index:2;opacity:0;left:50%;top:1%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);background:rgba(20,25,23,.8);border:1px solid var(--line);padding:7px 14px;border-radius:99px;pointer-events:none;white-space:nowrap;transition:opacity .4s}
 .hint svg{width:16px;height:16px;color:var(--green);animation:swing 2s ease-in-out infinite}
-.stage.touched .hint{opacity:0}
-.stage.nogl{display:none}
+.stage.live .hint{opacity:1}
+.stage.live.touched .hint{opacity:0}
+.poster{position:absolute;z-index:1;left:50%;top:50%;height:92%;width:auto;transform:translate(-50%,-50%);pointer-events:none;transition:opacity .5s}
+.stage.live .poster{opacity:0}
+.stage.nogl canvas,.stage.nogl .hint,.stage.nogl .swatches{display:none}
+.stage.nogl .poster{opacity:1}
+.swatches{position:absolute;z-index:2;bottom:1%;left:50%;transform:translateX(-50%);display:flex;gap:10px;padding:8px 12px;background:rgba(20,25,23,.75);border:1px solid var(--line);border-radius:99px;opacity:0;transition:opacity .4s}
+.stage.live .swatches{opacity:1}
+.swatches button{width:24px;height:24px;border-radius:50%;background:var(--c);border:2px solid rgba(255,255,255,.25);cursor:pointer;padding:0;transition:.15s}
+.swatches button.on{border-color:var(--green);box-shadow:0 0 0 3px rgba(56,212,48,.25);transform:scale(1.1)}
 @keyframes swing{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
 
 /* seções */
@@ -241,7 +249,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
 
     <div class="stage" id="stage">
+      <img class="poster" src="./assets/phone.png" alt="Celular com o orçamento da FH Cell na tela" width="525" height="1130">
       <canvas id="phone3d" aria-label="Celular 3D interativo"></canvas>
+      <div class="swatches" aria-label="Cores">
+        <button type="button" data-color="prata" class="on" style="--c:#d4d7d9" aria-label="Prata"></button>
+        <button type="button" data-color="preto" style="--c:#2b2d30" aria-label="Preto"></button>
+        <button type="button" data-color="vinho" style="--c:#6a2130" aria-label="Vinho"></button>
+        <button type="button" data-color="gelo" style="--c:#b3cbd9" aria-label="Azul gelo"></button>
+      </div>
       <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8l4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>Arraste para girar</div>
     </div>
 
@@ -448,8 +463,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
 </a>
 
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js"}}</script>
-<script type="module" src="./phone.js"></script>
+<script type="module" src="./assets/phone.js"></script>
 <script>
 /* intro */
 (function(){
