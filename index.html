@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07090a">
+<title>FH Cell | Conserto de Celular em Uberlândia, com busca e entrega grátis</title>
+<meta name="description" content="Assistência técnica de celular em Uberlândia. Troca de tela, bateria e tampa, com busca e entrega sem taxa e 3 meses de garantia. Galeria Rei Center, 2º andar, sala 12.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,700;0,800;0,900;1,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090a; --bg2:#0f1312; --card:#141917; --line:#232b28;
+  --text:#f2f5f3; --muted:#9aa6a0; --green:#38d430; --greenSoft:rgba(56,212,48,.12);
+  --A:Archivo,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,a{-webkit-tap-highlight-color:transparent}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.logo{font-family:var(--A);letter-spacing:-.02em}
+
+/* ---------- intro ---------- */
+.intro{position:fixed;inset:0;z-index:100;background:#040505;display:grid;place-items:center;transition:transform .8s cubic-bezier(.77,0,.18,1)}
+.intro .il{font-family:var(--A);font-weight:900;font-style:italic;font-size:clamp(44px,10vw,84px);letter-spacing:-.03em;opacity:0;transform:scale(.85);animation:ilIn .7s .1s cubic-bezier(.2,.8,.2,1) forwards}
+.intro .il b{color:var(--green)}
+.intro .bar{position:absolute;left:50%;bottom:42%;width:160px;height:3px;margin-left:-80px;background:var(--line);border-radius:3px;overflow:hidden;transform:translateY(60px)}
+.intro .bar i{display:block;height:100%;width:0;background:var(--green);animation:bar 1s .2s ease forwards}
+body.ready .intro{transform:translateY(-100%)}
+@keyframes ilIn{to{opacity:1;transform:none}}
+@keyframes bar{to{width:100%}}
+
+/* entrada dos elementos */
+.in{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+body.ready .in{opacity:1;transform:none}
+body.ready .in.d1{transition-delay:.35s} body.ready .in.d2{transition-delay:.45s}
+body.ready .in.d3{transition-delay:.55s} body.ready .in.d4{transition-delay:.65s} body.ready .in.d5{transition-delay:.75s}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .intro{display:none}.in,.reveal{opacity:1;transform:none;transition:none}
+}
+
+/* faixa topo */
+.strip{background:var(--green);color:#041004;font-weight:600;font-size:13px;text-align:center;padding:8px 16px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(7,9,10,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:24px;font-style:italic}
+.logo b{color:var(--green)}
+.nav nav{display:flex;gap:28px;font-size:15px;color:var(--muted)}
+.nav nav a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:12px;padding:15px 22px;font-size:16px;cursor:pointer;border:0;transition:.15s;font-family:inherit;min-height:50px}
+.btn-g{background:var(--green);color:#041004}
+.btn-g:hover{background:#4ae842;transform:translateY(-1px)}
+.btn-g:active{transform:scale(.98)}
+.btn-o{border:1.5px solid var(--line);color:var(--text);background:transparent}
+.btn-o:hover{border-color:var(--green)}
+.btn-sm{padding:10px 16px;font-size:14px;min-height:42px}
+svg.i{width:20px;height:20px;flex:none}
+
+/* ---------- hero ---------- */
+.hero{padding:40px 0 56px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;grid-template-rows:auto auto;column-gap:40px;align-items:center}
+.h-top{grid-column:1;grid-row:1;align-self:end}
+.h-bot{grid-column:1;grid-row:2;align-self:start}
+.tag{display:inline-flex;align-items:center;gap:8px;background:var(--greenSoft);color:var(--green);border:1px solid rgba(56,212,48,.3);padding:6px 12px;border-radius:99px;font-size:13px;font-weight:600}
+.hero h1{font-size:clamp(38px,5.4vw,62px);line-height:1.03;font-weight:900;margin:18px 0 0}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:540px;margin-top:18px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
+.proof{display:flex;gap:28px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+.proof strong{display:block;color:var(--text);font-family:var(--A);font-size:22px}
+
+/* palco do celular 3D */
+.stage{grid-column:2;grid-row:1/3;position:relative;height:620px;opacity:0;transition:opacity .6s .2s}
+body.ready .stage{opacity:1}
+.stage:before{content:"";position:absolute;inset:8% 4%;background:radial-gradient(circle at 50% 45%,rgba(56,212,48,.28),transparent 62%);filter:blur(10px);pointer-events:none}
+.stage:after{content:"";position:absolute;left:30%;right:30%;bottom:5%;height:26px;background:radial-gradient(ellipse,rgba(0,0,0,.7),transparent 70%);pointer-events:none}
+.stage canvas{position:relative;z-index:1;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.stage.grab canvas{cursor:grabbing}
+.hint{position:absolute;z-index:2;left:50%;bottom:2%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);background:rgba(20,25,23,.8);border:1px solid var(--line);padding:7px 14px;border-radius:99px;pointer-events:none;white-space:nowrap;transition:opacity .4s}
+.hint svg{width:16px;height:16px;color:var(--green);animation:swing 2s ease-in-out infinite}
+.stage.touched .hint{opacity:0}
+.stage.nogl{display:none}
+@keyframes swing{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+
+/* seções */
+section{padding:72px 0}
+.sec-h{max-width:640px;margin-bottom:36px}
+.sec-h small{color:var(--green);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+.sec-h h2{font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:8px 0 10px;font-weight:800}
+.sec-h p{color:var(--muted)}
+.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* como funciona */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.num{width:36px;height:36px;border-radius:10px;background:var(--greenSoft);color:var(--green);display:grid;place-items:center;font-weight:800;font-family:var(--A);margin-bottom:14px}
+.st b{display:block;font-size:17px;margin-bottom:4px}
+.st span{color:var(--muted);font-size:14px}
+
+/* serviços */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px;transition:.15s}
+.svc:hover{border-color:rgba(56,212,48,.5);transform:translateY(-2px)}
+.svc .ic{width:44px;height:44px;border-radius:12px;background:var(--greenSoft);display:grid;place-items:center;color:var(--green);margin-bottom:6px}
+.svc h3{font-size:19px}
+.svc p{color:var(--muted);font-size:15px;flex:1}
+.svc .time{font-size:13px;color:var(--green);font-weight:600}
+.svc a{font-size:15px;font-weight:600;color:var(--green);margin-top:6px;padding:4px 0}
+
+/* orçamento */
+.quote{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px}
+.form label{display:block;font-weight:600;font-size:15px;margin:20px 0 10px}
+.form label:first-child{margin-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:transparent;color:var(--text);padding:11px 15px;border-radius:10px;font-size:15px;cursor:pointer;font-family:inherit;transition:.12s;min-height:46px}
+.chip:hover{border-color:#3a4641}
+.chip.on{border-color:var(--green);background:var(--greenSoft);color:var(--green);font-weight:600}
+.form input{width:100%;background:var(--bg);border:1.5px solid var(--line);color:var(--text);padding:14px;border-radius:10px;font-size:16px;font-family:inherit}
+.form input:focus{outline:0;border-color:var(--green)}
+.form .btn{width:100%;margin-top:24px}
+.hint2{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.err{color:#ff7a6b;font-size:14px;margin-top:10px;text-align:center;display:none}
+.checks{list-style:none;display:grid;gap:12px;margin-top:22px}
+.checks li{display:flex;gap:10px;color:var(--muted)}
+.checks li svg{color:var(--green)}
+
+/* entrega */
+.deliv{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.deliv-box{background:linear-gradient(135deg,#123d10,#0b1f0a);border:1px solid rgba(56,212,48,.35);border-radius:22px;padding:34px}
+.deliv-box .big{font-family:var(--A);font-weight:900;font-size:clamp(34px,4.5vw,50px);line-height:1;color:var(--green)}
+.deliv-box p{color:#c9d6cf;margin-top:12px}
+
+/* diferenciais */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.why div{border-left:2px solid var(--green);padding:4px 0 4px 16px}
+.why b{display:block;font-family:var(--A);font-size:18px;margin-bottom:4px}
+.why span{color:var(--muted);font-size:14px}
+
+/* avaliações */
+.rev{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
+.stars{color:#ffc93c;font-size:22px;letter-spacing:2px}
+.rev h3{font-size:22px;margin-top:4px}
+.rev p{color:var(--muted);font-size:14px}
+
+/* local: endereço e mapa logo abaixo */
+.loc-info{background:var(--card);border:1px solid var(--line);border-radius:20px 20px 0 0;padding:26px;display:grid;grid-template-columns:repeat(3,1fr) auto;gap:22px;align-items:center}
+.loc-info .row{display:flex;gap:12px}
+.loc-info .row svg{color:var(--green);margin-top:2px}
+.loc-info b{display:block}
+.loc-info span{color:var(--muted);font-size:15px}
+.map{border:1px solid var(--line);border-top:0;border-radius:0 0 20px 20px;overflow:hidden;height:380px;background:var(--card)}
+.map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.25) invert(.92) hue-rotate(180deg)}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--green);font-size:22px;line-height:1}
+details[open] summary:after{content:"–"}
+details p{color:var(--muted);margin-top:10px;max-width:760px}
+
+footer{border-top:1px solid var(--line);padding:32px 0 110px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:30;background:var(--green);color:#041004;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 30px rgba(56,212,48,.35)}
+.fab svg{width:30px;height:30px}
+
+/* ---------- celular ---------- */
+@media (max-width:900px){
+  .nav nav{display:none}
+  .hero{padding:28px 0 40px}
+  .hero-grid{grid-template-columns:1fr}
+  .h-top,.h-bot,.stage{grid-column:1;grid-row:auto}
+  .stage{height:440px;margin:4px -20px 0}
+  .quote,.deliv{grid-template-columns:1fr;gap:28px}
+  .grid,.steps,.why{grid-template-columns:1fr 1fr}
+  .loc-info{grid-template-columns:1fr 1fr}
+  section{padding:56px 0}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .strip{font-size:12px}
+  .hero h1{font-size:38px}
+  .hero p.lead{font-size:16px;margin-top:6px}
+  .hero .ctas{margin:22px 0}
+  .hero .ctas .btn{width:100%}
+  .proof{gap:20px}
+  .proof strong{font-size:20px}
+  .stage{height:400px;margin:0 -16px}
+  .grid,.steps,.why{grid-template-columns:1fr}
+  .steps{gap:10px}
+  .st{display:grid;grid-template-columns:auto 1fr;column-gap:14px;padding:18px}
+  .st .num{margin:0;grid-row:1/3}
+  .nav .btn-sm span{display:none}
+  .form{padding:20px}
+  .deliv-box{padding:26px}
+  .loc-info{grid-template-columns:1fr;padding:22px}
+  .loc-info .btn{width:100%}
+  .map{height:300px}
+  .rev{padding:22px}
+  .rev .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="intro" aria-hidden="true">
+  <div class="il"><b>FH</b> CELL</div>
+  <div class="bar"><i></i></div>
+</div>
+
+<div class="strip">Busca e entrega sem taxa · 3 meses de garantia</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><b>FH</b> CELL</a>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#orcamento">Orçamento</a>
+      <a href="#entrega">Busca e entrega</a>
+      <a href="#local">Onde estamos</a>
+    </nav>
+    <a href="#orcamento" class="btn btn-g btn-sm" aria-label="Fazer orçamento"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span>Fazer orçamento</span></a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="h-top">
+      <span class="tag in d1">⚡ Conserto rápido em Uberlândia</span>
+      <h1 class="in d2">Seu celular consertado <em>sem você sair de casa.</em></h1>
+    </div>
+
+    <div class="stage" id="stage">
+      <canvas id="phone3d" aria-label="Celular 3D interativo"></canvas>
+      <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8l4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>Arraste para girar</div>
+    </div>
+
+    <div class="h-bot">
+      <p class="lead in d3">Troca de tela, bateria e tampa para iPhone, Samsung, Motorola e Xiaomi. A gente busca o aparelho, conserta e devolve, sem taxa de entrega.</p>
+      <div class="ctas in d4">
+        <a href="#orcamento" class="btn btn-g">Fazer orçamento em 30 segundos</a>
+        <a href="#servicos" class="btn btn-o">Ver serviços</a>
+      </div>
+      <div class="proof in d5">
+        <div><strong>+1000</strong>clientes atendidos</div>
+        <div><strong>3 meses</strong>de garantia</div>
+        <div><strong>R$ 0</strong>de taxa de busca</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" style="padding:56px 0">
+  <div class="wrap">
+    <div class="sec-h reveal"><small>Como funciona</small><h2>Do orçamento ao celular pronto</h2></div>
+    <div class="steps">
+      <div class="st reveal"><div class="num">1</div><b>Faça o orçamento</b><span>Escolha o aparelho e o problema. O pedido chega pronto no nosso WhatsApp.</span></div>
+      <div class="st reveal"><div class="num">2</div><b>A gente busca</b><span>Retiramos o celular na sua casa ou trabalho, sem taxa.</span></div>
+      <div class="st reveal"><div class="num">3</div><b>Consertamos rápido</b><span>Troca de tampa e bateria em cerca de 40 minutos.</span></div>
+      <div class="st reveal"><div class="num">4</div><b>Devolvemos com garantia</b><span>Seu aparelho volta com 3 meses de garantia.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-h reveal">
+      <small>Serviços</small>
+      <h2>O que a gente resolve</h2>
+      <p>Todas as marcas. Toque em um serviço para pedir o orçamento direto.</p>
+    </div>
+    <div class="grid">
+      <div class="svc reveal">
+        <div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7l3 4-2 3 3 3"/></svg></div>
+        <h3>Troca de tela e vidro</h3>
+        <p>Tela trincada, touch falhando ou manchas na imagem. Celulares e tablets.</p>
+        <a href="#orcamento" data-prob="Tela / vidro quebrado">Pedir orçamento →</a>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2M6 11v2M10 11v2"/></svg></div>
+        <h3>Troca de bateria</h3>
+        <p>Descarregando rápido, desligando sozinho ou bateria estufada.</p>
+        <span class="time">⚡ Em cerca de 40 minutos</span>
+        <a href="#orcamento" data-prob="Bateria">Pedir orçamento →</a>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="9" cy="6.5" r="1.5"/></svg></div>
+        <h3>Troca de tampa traseira</h3>
+        <p>Vidro de trás quebrado. Seu aparelho fica com cara de novo.</p>
+        <span class="time">⚡ Em cerca de 40 minutos</span>
+        <a href="#orcamento" data-prob="Tampa traseira">Pedir orçamento →</a>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M8 8h8v4a4 4 0 0 1-8 0zM12 16v6"/></svg></div>
+        <h3>Não carrega / conector</h3>
+        <p>Cabo com mau contato, carregamento lento ou que não reconhece.</p>
+        <a href="#orcamento" data-prob="Não carrega">Pedir orçamento →</a>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg></div>
+        <h3>Assistência técnica geral</h3>
+        <p>Câmera, áudio, botões, aparelho que molhou e defeitos de placa.</p>
+        <a href="#orcamento" data-prob="Outro defeito">Pedir orçamento →</a>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <h3>Seminovos e acessórios</h3>
+        <p>Celulares seminovos revisados, capinhas, películas e carregadores.</p>
+        <a href="#" class="wa-direct" data-msg="Olá! Vim pelo site e queria ver os seminovos e acessórios disponíveis.">Ver disponíveis →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="orcamento" class="alt">
+  <div class="wrap quote">
+    <div class="sec-h reveal" style="margin-bottom:0">
+      <small>Orçamento</small>
+      <h2>Faça seu orçamento em 30 segundos</h2>
+      <p>Escolha o aparelho e o problema. A mensagem já chega pronta no nosso WhatsApp, sem precisar explicar tudo de novo.</p>
+      <ul class="checks">
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Resposta rápida pelo WhatsApp</li>
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Sem compromisso</li>
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Busca e entrega sem taxa</li>
+      </ul>
+    </div>
+    <form class="form reveal" id="qform" onsubmit="return false">
+      <label>1. Qual é o aparelho?</label>
+      <div class="chips" data-group="marca">
+        <button type="button" class="chip">iPhone</button>
+        <button type="button" class="chip">Samsung</button>
+        <button type="button" class="chip">Motorola</button>
+        <button type="button" class="chip">Xiaomi</button>
+        <button type="button" class="chip">Tablet</button>
+        <button type="button" class="chip">Outro</button>
+      </div>
+      <label for="modelo">2. Qual o modelo?</label>
+      <input id="modelo" placeholder="Ex.: iPhone 14 Pro, Galaxy A54" autocomplete="off">
+      <label>3. Qual é o problema?</label>
+      <div class="chips" data-group="prob">
+        <button type="button" class="chip">Tela / vidro quebrado</button>
+        <button type="button" class="chip">Bateria</button>
+        <button type="button" class="chip">Tampa traseira</button>
+        <button type="button" class="chip">Não carrega</button>
+        <button type="button" class="chip">Molhou</button>
+        <button type="button" class="chip">Outro defeito</button>
+      </div>
+      <label>4. Como prefere?</label>
+      <div class="chips" data-group="entrega">
+        <button type="button" class="chip">Buscar em casa (sem taxa)</button>
+        <button type="button" class="chip">Levo até a loja</button>
+      </div>
+      <button type="button" class="btn btn-g" id="send">
+        <svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+        Enviar orçamento pelo WhatsApp
+      </button>
+      <p class="err" id="err">Escolha o aparelho e o problema para continuar.</p>
+      <p class="hint2">Abre o WhatsApp com a mensagem pronta.</p>
+    </form>
+  </div>
+</section>
+
+<section id="entrega">
+  <div class="wrap deliv">
+    <div class="deliv-box reveal">
+      <div class="big">Buscamos.<br>Consertamos.<br>Entregamos.</div>
+      <p>Sem taxa de busca e entrega. Você continua sua rotina e o celular volta pronto.</p>
+    </div>
+    <div class="sec-h reveal" style="margin-bottom:0">
+      <small>Busca e entrega</small>
+      <h2>Não consegue ir até a loja? A gente vai até você.</h2>
+      <p>Nosso motoboy retira o aparelho na sua casa ou no seu trabalho em Uberlândia e devolve depois do conserto. Você acompanha tudo pelo WhatsApp.</p>
+      <div style="margin-top:24px"><a href="#" class="btn btn-g wa-direct" data-msg="Olá! Vim pelo site e queria agendar a busca do meu celular.">Agendar busca grátis</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" style="padding:48px 0">
+  <div class="wrap">
+    <div class="why">
+      <div class="reveal"><b>Rapidez</b><span>Tampa e bateria em cerca de 40 minutos</span></div>
+      <div class="reveal"><b>Garantia</b><span>3 meses em todos os serviços</span></div>
+      <div class="reveal"><b>Preço justo</b><span>Orçamento claro antes de qualquer conserto</span></div>
+      <div class="reveal"><b>Equipe técnica</b><span>Especializada em todas as marcas</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-bottom:0">
+  <div class="wrap">
+    <div class="rev reveal">
+      <div>
+        <div class="stars">★★★★★</div>
+        <h3>Veja o que nossos clientes dizem</h3>
+        <p>Avaliações reais de clientes no Google.</p>
+      </div>
+      <a href="https://www.google.com/maps/search/FH+Cell+Uberl%C3%A2ndia" target="_blank" rel="noopener" class="btn btn-o">Ver avaliações no Google</a>
+    </div>
+  </div>
+</section>
+
+<section id="local">
+  <div class="wrap">
+    <div class="sec-h reveal"><small>Onde estamos</small><h2>Venha até a loja</h2></div>
+    <div class="reveal">
+      <div class="loc-info">
+        <div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Galeria Rei Center</b><span>2º andar, sala 12<br>Uberlândia/MG</span></div></div>
+        <div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><b>Horário</b><span>Seg a sex: 00h às 00h<br>Sábado: 00h às 00h</span></div></div>
+        <div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><b>WhatsApp</b><span>(34) 99693-8626</span></div></div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Galeria+Rei+Center+Uberl%C3%A2ndia" target="_blank" rel="noopener" class="btn btn-g">Como chegar</a>
+      </div>
+      <div class="map">
+        <iframe loading="lazy" title="Mapa FH Cell" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Galeria%20Rei%20Center%20Uberl%C3%A2ndia&t=m&z=17&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h reveal"><small>Dúvidas</small><h2>Perguntas frequentes</h2></div>
+    <details><summary>Quanto tempo demora o conserto?</summary><p>Troca de tampa e bateria leva cerca de 40 minutos. Outros serviços dependem do modelo e da peça, e a gente informa o prazo junto com o orçamento.</p></details>
+    <details><summary>A busca e entrega tem custo?</summary><p>Não. Buscamos e devolvemos o aparelho em Uberlândia sem taxa.</p></details>
+    <details><summary>O serviço tem garantia?</summary><p>Sim, todos os serviços têm 3 meses de garantia.</p></details>
+    <details><summary>Vocês consertam quais marcas?</summary><p>iPhone, Samsung, Motorola, Xiaomi, tablets e outras marcas. Se tiver dúvida sobre o seu modelo, é só fazer o orçamento.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b style="color:var(--text)">FH Cell</b> · Assistência técnica de celular em Uberlândia</span>
+    <span><a href="https://www.instagram.com/fh.cell" target="_blank" rel="noopener">Instagram @fh.cell</a></span>
+  </div>
+</footer>
+
+<a href="#" class="fab wa-direct" aria-label="Falar no WhatsApp" data-msg="Olá! Vim pelo site e gostaria de um orçamento.">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+</a>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js"}}</script>
+<script type="module" src="./phone.js"></script>
+<script>
+/* intro */
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const go = () => { document.body.classList.add('ready'); dispatchEvent(new Event('intro-done')); };
+  if (reduce) return go();
+  let done = false;
+  const finish = () => { if (!done) { done = true; go(); } };
+  setTimeout(finish, 1300);
+})();
+
+/* revelar ao rolar */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+}), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el);
+});
+
+/* WhatsApp */
+const WA = "5534996938626";
+const wa = msg => "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+const sel = {};
+document.querySelectorAll(".chips").forEach(g => {
+  g.addEventListener("click", e => {
+    const c = e.target.closest(".chip"); if (!c) return;
+    g.querySelectorAll(".chip").forEach(x => x.classList.remove("on"));
+    c.classList.add("on");
+    sel[g.dataset.group] = c.textContent.trim();
+    document.getElementById("err").style.display = "none";
+  });
+});
+function pick(group, text){
+  document.querySelectorAll('.chips[data-group="'+group+'"] .chip').forEach(x => {
+    const on = x.textContent.trim() === text;
+    x.classList.toggle("on", on);
+    if (on) sel[group] = text;
+  });
+}
+document.querySelectorAll("[data-prob]").forEach(a => a.addEventListener("click", () => pick("prob", a.dataset.prob)));
+document.getElementById("send").addEventListener("click", () => {
+  if (!sel.marca || !sel.prob) { document.getElementById("err").style.display = "block"; return; }
+  const modelo = document.getElementById("modelo").value.trim();
+  let msg = "Olá! Vim pelo site e quero um orçamento.\n\n";
+  msg += "📱 Aparelho: " + sel.marca + (modelo ? " - " + modelo : "") + "\n";
+  msg += "🔧 Problema: " + sel.prob + "\n";
+  if (sel.entrega) msg += "🛵 " + sel.entrega + "\n";
+  window.open(wa(msg), "_blank");
+});
+document.querySelectorAll(".wa-direct").forEach(a => {
+  a.href = wa(a.dataset.msg); a.target = "_blank"; a.rel = "noopener";
+});
+</script>
+</body>
+</html>
